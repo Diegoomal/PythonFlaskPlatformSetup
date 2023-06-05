@@ -4,14 +4,20 @@ Simple example to implement some project in python
 
 (conda virtual environment is required)
 
-## Execução do projeto
+## Build and run the project
 
 ```
-source automation/build.sh
+source pipeline/build.sh
 ```
 
-## Excluir os diretorios e arquivos criados
+## Remove dir's, files and destroy the virtual environment
 
 ```
-source automation/destroy.sh
+source pipeline/destroy.sh
+```
+
+## Update and run the project
+
+```
+source pipeline/update.sh
 ```

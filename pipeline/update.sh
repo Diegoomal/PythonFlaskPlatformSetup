@@ -1,5 +1,5 @@
 
-echo "===== bash build ====="
+echo "===== bash update ====="
 
 echo "1) Reset environment"
 
@@ -9,7 +9,7 @@ echo "2) Conda environment"
 
 conda deactivate
 
-conda env create -n project-env -f ./env.yml
+conda env update -n project-env -f ./env.yml
 
 conda activate project-env
 

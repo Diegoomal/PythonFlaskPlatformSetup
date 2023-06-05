@@ -12,8 +12,6 @@ echo "2) Remove dir and files"
 rm -rf __pycache__
 rm -rf .pytest_cache
 
-# rm -rf src/ebeer_dataset
-
 rm -rf src/__pycache__
 
 rm -rf docs
