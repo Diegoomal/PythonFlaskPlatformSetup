@@ -15,20 +15,18 @@ conda activate project-env
 
 echo "3) LINT verify with Flak8"
 
-# flake8 . --count --statistics
+flake8 . --count --statistics
 
-# flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
 echo "4) Generating documentation"
 
-# pdoc src -o docs
+pdoc src -o docs
 
-echo "5) Run project"
+echo "5) Unity test with pytest"
 
-# python src/main.py
+pytest -s
 
-docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu & python src/main.py
+echo "6) Run project"
 
-echo "6) Unity test with pytest"
-
-# pytest -s
+python src/main.py
