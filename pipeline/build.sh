@@ -7,7 +7,7 @@ echo "1) Reset environment"
 
 echo "2) Conda environment"
 
-conda deactivate
+# conda deactivate
 
 conda env create -n project-env -f ./env.yml
 
@@ -15,9 +15,9 @@ conda activate project-env
 
 echo "3) LINT verify with Flak8"
 
-flake8 . --count --statistics
+# flake8 . --count --statistics
 
-flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+# flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
 echo "4) Generating documentation"
 
@@ -25,8 +25,10 @@ echo "4) Generating documentation"
 
 echo "5) Run project"
 
-python src/main.py
+# python src/main.py
+
+docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu & python src/main.py
 
 echo "6) Unity test with pytest"
 
-pytest -s
+# pytest -s

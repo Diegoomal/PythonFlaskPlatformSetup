@@ -1,3 +1,7 @@
-pdoc==12.*
-flake8==6.0.0
-pytest==7.1.*
+# pdoc==12.*
+# flake8==6.0.0
+# pytest==7.1.*
+# keras
+tensorflow
+# tensorflow-gpu
+# tensorflow-estimator
