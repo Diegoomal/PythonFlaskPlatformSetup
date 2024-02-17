@@ -1,27 +1,20 @@
 # Python simple project
 
-Simple example to implement some project in python
 
-(conda virtual environment is required)
-
-## Build and run the project
+## Execute
 
 ```
-source pipeline/build.sh
-```
 
-## Remove dir's, files and destroy the virtual environment
+conda activate project-env
 
-```
-source pipeline/destroy.sh
-```
+conda env update -n project-env -f ./env.yml
 
-## Update and run the project
+streamlit run src/main.py
 
-```
-source pipeline/update.sh
 ```
 
 Links
 
 [github](https://github.com/Diegoomal)
+
+[github_src_code](https://github.com/kaifcoder/gemini_multipdf_chat/tree/main)
