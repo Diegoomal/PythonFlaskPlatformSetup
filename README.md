@@ -7,14 +7,14 @@
 
 conda activate project-env
 
+conda env create -n project-env -f ./env.yml
+
 conda env update -n project-env -f ./env.yml
 
-streamlit run src/main.py
+ptyhon src/main.py
  
 ```
 
 Links
 
 [github](https://github.com/Diegoomal)
-
-[github_src_code](https://github.com/kaifcoder/gemini_multipdf_chat/tree/main) 
