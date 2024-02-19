@@ -1,6 +1,6 @@
 pdoc==12.*
 flake8==6.0.0
 pytest==7.1.*
-openpyxl
-matplotlib
-seaborn
+openpyxl==3.1.2
+matplotlib==3.8.3
+seaborn==0.13.2
