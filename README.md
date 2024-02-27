@@ -1,5 +1,12 @@
 # Python simple project
 
+## '.env' file
+
+```
+
+TEST=test
+
+```
 
 ## Execute
 
@@ -14,7 +21,7 @@ conda env update -n project-env -f ./env.yml
 conda env remove --n project-env
 
 ptyhon src/main.py
- 
+
 ```
 
 ## Links
