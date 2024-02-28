@@ -27,3 +27,5 @@ ptyhon src/main.py
 ## Links
 
 [github](https://github.com/Diegoomal)
+
+[hf_model](https://huggingface.co/CompVis/stable-diffusion-v1-4)
