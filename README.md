@@ -12,13 +12,13 @@ TEST=test
 
 ```
 
-conda activate project-env
+conda activate img23D-env
 
-conda env create -n project-env -f ./env.yml
+conda env create -n img23D-env -f ./env.yml
 
-conda env update -n project-env -f ./env.yml
+conda env update -n img23D-env -f ./env.yml
 
-conda env remove --n project-env
+conda env remove --n img23D-env
 
 ptyhon src/main.py
 
