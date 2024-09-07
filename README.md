@@ -1,33 +1,50 @@
-# Python simple project
+# Github AI Models
 
 ## '.env' file
 
 ```
-TEST=test
+GITHUB_TOKEN="..."
+```
+
+## Manage Conda ENV
+
+### Create
+
+```
+conda env create -n python-setup-project-env -f ./env.yml
+```
+
+### Activate
+```
+conda activate python-setup-project-env
+```
+
+### Update
+
+```
+conda env update -n python-setup-project-env -f ./env.yml
+```
+
+### Remove
+
+```
+conda env remove --n python-setup-project-env
 ```
 
 ## Execute
 
 ```
-conda activate project-env
-
-conda env create -n project-env -f ./env.yml
-
 python src/main.py
 ```
 
-## Update env
+## Examples
 
 ```
-conda env update -n project-env -f ./env.yml
-```
-
-## Remove env
-
-```
-conda env remove --n project-env
+notebooks/main.ipynb
 ```
 
 ## Links
 
-[github](https://github.com/Diegoomal)
+[github_author](https://github.com/Diegoomal)
+
+[generate-token](https://github.com/settings/tokens)
