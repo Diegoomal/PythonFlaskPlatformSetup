@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, session          # type: ignore
+from flask import render_template, redirect, url_for, session                   # type: ignore
 
 from . import create_app
 

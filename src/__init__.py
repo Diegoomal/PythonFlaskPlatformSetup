@@ -1,13 +1,13 @@
 import os
 from datetime import timedelta
 
-from dotenv import load_dotenv              # type: ignore
+from dotenv import load_dotenv                                                  # type: ignore
 load_dotenv()
 
-from flask import Flask                     # type: ignore
-from flask_bcrypt import Bcrypt             # type: ignore
-from flask_migrate import Migrate           # type: ignore
-from flask_sqlalchemy import SQLAlchemy     # type: ignore
+from flask import Flask                                                         # type: ignore
+from flask_bcrypt import Bcrypt                                                 # type: ignore
+from flask_migrate import Migrate                                               # type: ignore
+from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
 
 
 db = SQLAlchemy()
