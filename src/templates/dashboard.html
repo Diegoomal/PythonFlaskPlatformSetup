@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            height: 100%;
+            padding: 20px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background: #555;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: calc(100% - 220px);
+            margin-left: 220px;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard</h1>
+    </div>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+    </div>
+    <div class="main-content">
+        <div class="card">
+            <h2>Overview</h2>
+            <p>This is the overview section of the dashboard.</p>
+        </div>
+        <div class="card">
+            <h2>Recent Activity</h2>
+            <p>Details about recent activity will go here.</p>
+        </div>
+        <div class="card">
+            <h2>Statistics</h2>
+            <p>Charts and statistics will be displayed here.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 My App. All rights reserved.</p>
+    </div>
+</body>
+</html>

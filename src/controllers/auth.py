@@ -1,12 +1,16 @@
-from flask import Blueprint, request, jsonify, session
-from .models import User
-from . import db, bcrypt
+from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for # type: ignore
+from ..models import User
+from .. import db, bcrypt
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/register', methods=['POST'])
+@auth.route('/register', methods=['GET', 'POST'])
 def register():
-    data = request.get_json()
+
+    if request.method == 'GET':
+        return render_template('register.html')
+    
+    data = request.form
     username = data.get('username')
     password = data.get('password')
 
@@ -21,11 +25,16 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({'message': 'User created successfully'}), 201
+    return redirect(url_for('auth.login'))
 
-@auth.route('/login', methods=['POST'])
+
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
-    data = request.get_json()
+
+    if request.method == 'GET':
+        return render_template('login.html')
+    
+    data = request.form
     username = data.get('username')
     password = data.get('password')
 
@@ -36,4 +45,4 @@ def login():
         return jsonify({'message': 'Invalid credentials'}), 401
 
     session['user_id'] = user.id
-    return jsonify({'message': 'Login successful'}), 200
+    return redirect(url_for('public_pages.dashboard'))

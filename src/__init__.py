@@ -23,8 +23,12 @@ def create_app():
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    # Registra blueprint de autenticação
-    from .auth import auth as auth_blueprint
+    # Register blueprint de authentication
+    from .controllers.auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
+
+    # Register blueprint de public pages
+    from .controllers.public_pages import _public_pages_ as public_pages_blueprint
+    app.register_blueprint(public_pages_blueprint)
 
     return app
