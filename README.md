@@ -3,7 +3,8 @@
 ## '.env' file
 
 ```
-GITHUB_TOKEN="..."
+SECRET_KEY="super-secret-key"
+SQLALCHEMY_DATABASE_URI="sqlite:///db.sqlite"
 ```
 
 ## Manage Conda ENV
