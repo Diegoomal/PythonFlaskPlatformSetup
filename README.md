@@ -10,25 +10,21 @@ SQLALCHEMY_DATABASE_URI="sqlite:///db.sqlite"
 ## Manage Conda ENV
 
 ### Create
-
 ```
 conda env create -n python-platform-setup-env -f ./env.yml
 ```
 
 ### Update
-
 ```
 conda env update -n python-platform-setup-env -f ./env.yml
 ```
 
 ### Remove
-
 ```
 conda env remove --n python-platform-setup-env
 ```
 
 ### List
-
 ```
 conda env list
 ```
@@ -41,7 +37,6 @@ conda activate python-platform-setup-env
 ## To Execute
 
 ### Config the DB
-
 ```
 flask db init
 flask db migrate
@@ -49,7 +44,6 @@ flask db upgrade
 ```
 
 ### Run Flask server
-
 ```
 flask run
 ```
