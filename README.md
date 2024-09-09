@@ -11,25 +11,48 @@ GITHUB_TOKEN="..."
 ### Create
 
 ```
-conda env create -n python-setup-project-env -f ./env.yml
-```
-
-### Activate
-```
-conda activate python-setup-project-env
+conda env create -n python-platform-setup-env -f ./env.yml
 ```
 
 ### Update
 
 ```
-conda env update -n python-setup-project-env -f ./env.yml
+conda env update -n python-platform-setup-env -f ./env.yml
 ```
 
 ### Remove
 
 ```
-conda env remove --n python-setup-project-env
+conda env remove --n python-platform-setup-env
 ```
+
+### List
+
+```
+conda env list
+```
+
+### Activate
+```
+conda activate python-platform-setup-env
+```
+
+## To Execute
+
+### Config the DB
+
+```
+flask db init
+flask db migrate
+flask db upgrade
+```
+
+### Run Flask server
+
+```
+flask run
+```
+
 
 ## Execute
 
