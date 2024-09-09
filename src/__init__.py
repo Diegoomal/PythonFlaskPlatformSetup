@@ -1,13 +1,12 @@
 import os
-from flask import Flask                                                         # type: ignore
-from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
-from flask_bcrypt import Bcrypt                                                 # type: ignore
-from flask_migrate import Migrate                                               # type: ignore
+from flask import Flask                     # type: ignore
+from flask_sqlalchemy import SQLAlchemy     # type: ignore
+from flask_bcrypt import Bcrypt             # type: ignore
+from flask_migrate import Migrate           # type: ignore
 
 # Carrega variáveis do .env
-from dotenv import load_dotenv                                                  # type: ignore
+from dotenv import load_dotenv              # type: ignore
 load_dotenv()
-
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -23,12 +22,12 @@ def create_app():
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    # Register blueprint de authentication
+    # Register blueprint de autenticação
     from .controllers.auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
-    # Register blueprint de public pages
-    from .controllers.public_pages import _public_pages_ as public_pages_blueprint
+    # Register blueprint de páginas públicas
+    from .controllers.public_pages import public_pages as public_pages_blueprint
     app.register_blueprint(public_pages_blueprint)
 
     return app
