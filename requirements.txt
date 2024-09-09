@@ -1,10 +1,6 @@
 pdoc==12.*
 flake8==6.0.0
 pytest==7.1.*
-openpyxl==3.1.2
-matplotlib==3.8.3
-seaborn==0.13.2
-python-dotenv==1.0.1
 
 # .ipybn
 wcwidth==0.2.13
@@ -13,8 +9,8 @@ ipywidgets==8.1.4
 jupyterlab-widgets==3.0.12
 widgetsnbextension==4.0.12
 
-python-dotenv
-Flask
-Flask-Bcrypt
-Flask-Migrate
-Flask-SQLAlchemy
+python-dotenv==1.0.1
+Flask==3.0.3
+Flask-Bcrypt==1.0.1
+Flask-Migrate==4.0.7
+Flask-SQLAlchemy==3.1.1

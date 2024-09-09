@@ -1,7 +1,8 @@
 import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask import Flask                                                         # type: ignore
+from flask_migrate import Migrate                                               # type: ignore
+from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

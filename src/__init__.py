@@ -1,12 +1,13 @@
 import os
-from flask import Flask                                                         # type: ignore
-from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
-from flask_bcrypt import Bcrypt                                                 # type: ignore
-from flask_migrate import Migrate                                               # type: ignore
+from datetime import timedelta
 
-# Carrega variáveis do .env
 from dotenv import load_dotenv                                                  # type: ignore
 load_dotenv()
+
+from flask import Flask                                                         # type: ignore
+from flask_bcrypt import Bcrypt                                                 # type: ignore
+from flask_migrate import Migrate                                               # type: ignore
+from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
 
 
 db = SQLAlchemy()
@@ -19,12 +20,17 @@ def create_app():
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=1)
 
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    # Registra blueprint de autenticação
-    from .auth import auth as auth_blueprint
+    # Register blueprint de autenticação
+    from .controllers.auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
+
+    # Register blueprint de páginas públicas
+    from .controllers.public_pages import public_pages as public_pages_blueprint
+    app.register_blueprint(public_pages_blueprint)
 
     return app

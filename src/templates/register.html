@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,30 +51,30 @@
         button:hover {
             background-color: #0056b3;
         }
-        .register-link {
+        .login-link {
             margin-top: 10px;
         }
-        .register-link a {
+        .login-link a {
             color: #007bff;
             text-decoration: none;
         }
-        .register-link a:hover {
+        .login-link a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form action="/login" method="post">
+        <h1>Register</h1>
+        <form action="/register" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
-        <div class="register-link">
-            <p>Don't have an account? <a href="/register">Register here</a></p>
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
         </div>
     </div>
 </body>
