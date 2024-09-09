@@ -1,12 +1,13 @@
 import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
-from flask_migrate import Migrate
-from dotenv import load_dotenv
+from flask import Flask                                                         # type: ignore
+from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
+from flask_bcrypt import Bcrypt                                                 # type: ignore
+from flask_migrate import Migrate                                               # type: ignore
 
 # Carrega variáveis do .env
+from dotenv import load_dotenv                                                  # type: ignore
 load_dotenv()
+
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
