@@ -1,8 +1,14 @@
-from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for  # type: ignore
 from ..models import User
-from .. import db, bcrypt
+from .. import db, bcrypt, login_manager
+from flask_login import login_user, logout_user, login_required                 # type: ignore
+from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for  # type: ignore
+
 
 auth = Blueprint('auth', __name__)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
@@ -39,7 +45,14 @@ def login():
         if not user or not user.check_password(password):
             return jsonify({'message': 'Invalid credentials'}), 401
 
-        session['user_id'] = user.id
-        return redirect(url_for('public_pages.dashboard'))
+        login_user(user)
+        # session['user_id'] = user.id
+        return redirect(url_for('dashboard'))
 
     return render_template('login.html')
+
+@auth.route('/logout', methods=['GET', 'POST'])
+@login_required
+def logout():
+    logout_user()
+    return render_template('index.html')
