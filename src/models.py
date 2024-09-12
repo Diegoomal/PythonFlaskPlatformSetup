@@ -1,7 +1,8 @@
 from . import db
+from flask_login import UserMixin                                               # type: ignore
 from flask_bcrypt import generate_password_hash, check_password_hash            # type: ignore
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     
     __tablename__ = 'users'
 

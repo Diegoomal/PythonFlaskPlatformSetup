@@ -7,11 +7,13 @@ load_dotenv()
 from flask import Flask                                                         # type: ignore
 from flask_bcrypt import Bcrypt                                                 # type: ignore
 from flask_migrate import Migrate                                               # type: ignore
+from flask_login import LoginManager                                            # type: ignore
 from flask_sqlalchemy import SQLAlchemy                                         # type: ignore
 
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
+login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
@@ -25,6 +27,10 @@ def create_app():
     db.init_app(app)
     migrate = Migrate(app, db)
 
+    # Inicializar o login manager
+    login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'  # Define a página de login
+
     # Register blueprint de autenticação
     from .controllers.auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
@@ -34,3 +40,5 @@ def create_app():
     app.register_blueprint(public_pages_blueprint)
 
     return app
+
+app = create_app()

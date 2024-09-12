@@ -48,17 +48,9 @@ flask db upgrade
 flask run
 ```
 
-
-## Execute
-
+### Run uvicorn server (prod)
 ```
-python src/main.py
-```
-
-## Examples
-
-```
-notebooks/main.ipynb
+uvicorn src.main:asgi_app --host 0.0.0.0 --port 8000 --workers 4 --reload
 ```
 
 ## Links
