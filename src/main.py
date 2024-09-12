@@ -4,10 +4,11 @@ from flask_login import login_required, current_user                            
 from flask import render_template, redirect, url_for, session, request, jsonify, flash # type: ignore
 
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    if request.method == 'GET':
+        return render_template('dashboard.html')
 
 
 # if __name__ == '__main__':

@@ -12,10 +12,13 @@ def load_user(user_id):
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+
+    if request.method == 'GET':
+        return render_template('register.html')
+    
     if request.method == 'POST':
-        data = request.form
-        username = data.get('username')
-        password = data.get('password')
+        username = request.form.get('username')
+        password = request.form.get('password')
 
         # Verifica se o usuário já existe
         user = User.query.filter_by(username=username).first()
@@ -30,14 +33,15 @@ def register():
 
         return redirect(url_for('auth.login'))
 
-    return render_template('register.html')
-
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+
+    if request.method == 'GET':
+        return render_template('login.html')
+    
     if request.method == 'POST':
-        data = request.form
-        username = data.get('username')
-        password = data.get('password')
+        username = request.form.get('username')
+        password = request.form.get('password')
 
         user = User.query.filter_by(username=username).first()
 
@@ -48,8 +52,6 @@ def login():
         login_user(user)
         # session['user_id'] = user.id
         return redirect(url_for('dashboard'))
-
-    return render_template('login.html')
 
 @auth.route('/logout', methods=['GET', 'POST'])
 @login_required
