@@ -47,7 +47,8 @@ def login():
 
         # Valida usuário e senha
         if not user or not user.check_password(password):
-            return jsonify({'message': 'Invalid credentials'}), 401
+            # return jsonify({'message': 'Invalid credentials'}), 401
+            return render_template('login.html')
 
         login_user(user)
         # session['user_id'] = user.id
