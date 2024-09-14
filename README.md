@@ -39,9 +39,15 @@ conda activate python-platform-setup-env
 ### Config the DB
 ```
 flask db init
-flask db migrate
+flask db migrate -m "initial migration"
 flask db upgrade
+flask db downgrade
 ```
+
+<!-- 
+flask db upgrade OR downgrade
+path -> migrations/script.py.mako
+-->
 
 ### Run Flask server
 ```
@@ -58,3 +64,5 @@ uvicorn src.main:asgi_app --host 0.0.0.0 --port 8000 --workers 4 --reload
 [github_author](https://github.com/Diegoomal)
 
 [generate-token](https://github.com/settings/tokens)
+[freecodecamp-tutorial](https://www.freecodecamp.org/news/how-to-authenticate-users-in-flask/)
+[digitalocean-migration-tutorial](https://www.digitalocean.com/community/tutorials/how-to-perform-flask-sqlalchemy-migrations-using-flask-migrate)

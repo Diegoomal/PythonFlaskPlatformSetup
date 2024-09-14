@@ -16,3 +16,14 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+    def __str__(self):
+        return f'User({self.username})'
+
+    def __eq__(self, other):
+        if isinstance(other, User):
+            return self.id == other.id
+        return False

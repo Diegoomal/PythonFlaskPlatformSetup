@@ -51,7 +51,6 @@ def login():
             return render_template('login.html')
 
         login_user(user)
-        # session['user_id'] = user.id
         return redirect(url_for('dashboard'))
 
 @auth.route('/logout', methods=['GET', 'POST'])
