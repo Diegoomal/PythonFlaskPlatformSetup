@@ -10,12 +10,33 @@ class User(UserMixin, db.Model):
     # email = db.Column(db.String(150), nullable=False, unique=True)
     username = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(150), nullable=False)
+    roles = db.Column(db.String(255), nullable=False)
 
     def set_password(self, password):
         self.password = generate_password_hash(password).decode('utf8')
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+    def has_role(self, role):
+        return role in self.roles.split(',')
+
+    def add_role(self, role):
+        if self.roles is not None:
+            roles_list = self.roles.split(',')
+            if role not in roles_list:
+                roles_list.append(role)
+                self.roles = ','.join(roles_list)
+        else: 
+            roles_list = []
+            roles_list.append(role)
+            self.roles = ','.join(roles_list)
+
+    def remove_role(self, role):
+        roles_list = self.roles.split(',')
+        if role in roles_list:
+            roles_list.remove(role)
+            self.roles = ','.join(roles_list)
 
     def __repr__(self):
         return '<User %r>' % self.username

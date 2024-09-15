@@ -1,7 +1,19 @@
 from ..models import User
 from .. import db, bcrypt, login_manager
-from flask_login import login_user, logout_user, login_required                 # type: ignore
+from flask_login import login_user, logout_user, login_required, current_user   # type: ignore
 from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for  # type: ignore
+
+from functools import wraps
+
+def role_required(role):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if not current_user.has_role(role):
+                return jsonify({'message': "forbidden—you don't have permission to access this resource"}), 403
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
 
 
 auth = Blueprint('auth', __name__)
@@ -28,6 +40,7 @@ def register():
         # Cria novo usuário
         new_user = User(username=username)
         new_user.set_password(password)
+        new_user.add_role('user')
         db.session.add(new_user)
         db.session.commit()
 
